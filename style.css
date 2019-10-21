@@ -1,0 +1,47 @@
+
+
+
+h2, h3 {
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+h2 {
+	font-size: 20;
+}
+h3 {
+	font-size: 18;
+	color: gray;
+}
+p {
+	font-size: 16;
+	margin-left: 20px;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+ul {
+	list-style: none;
+	padding: 0px;
+	padding-bottom:  5px;
+}
+
+li {
+	/* margin-bottom: 10px; */
+}
+
+div {
+	background-color: #ffffff0a;
+	/* padding: 10px 20px; */
+	border-radius: 7px;
+	margin: 10px 10px;
+	box-shadow: 2px 2px #0001;
+}
+.header {
+}
+
+.body {
+	margin: 10px 0;
+	/* border-radius: 0; */
+}
