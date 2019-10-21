@@ -1,0 +1,51 @@
+!<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Nbt Database</title>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<div class="class">
+					<h2>Entity</h2>
+					<p>Entity base class</p>
+					<ul>
+						<li><div class="">
+							<h2>id</h2>
+							<h3>string</h3>
+							<p>text representation of the entity's ID. Does not exist for the Player entity</p>
+						</div></li>
+						<li><div class="">
+							<h2>Pos</h2>
+							<h3>double[]</h3>
+							<p>describing the current X, Y and Z position of the entity.</p>
+							<ul>
+								<li><div class="">
+									<h2>0</h2>
+									<h3>double</h3>
+									<p>x coord</p>
+								</div></li>
+								<li><div class="">
+									<h2>1</h2>
+									<h3>double</h3>
+									<p>y coord</p>
+								</div></li>
+								<li><div class="">
+									<h2>2</h2>
+									<h3>double</h3>
+									<p>z coord</p>
+								</div></li>
+							</ul>
+						</div></li>
+						<li><div class="">
+							<h2>Air</h2>
+							<h3>int</h3>
+							<p>How much air the entity has, in ticks. Fills to a maximum of 300 in air, giving 15 seconds submerged</p>
+						</div></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>
