@@ -1,66 +1,58 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title>Nbt Database</title>
-		<link rel="stylesheet" href="style.css" type="text/css"/>
+		<link
+		<link rel="stylesheet/less" type="text/css" href="style.less"/>
+		<script src="less.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			less.watch();
+		</script>
+		<script src="jquery.min.js" charset="utf-8"></script>
+		<script src="dropdown.js" charset="utf-8"></script>
+
+		<title></title>
 	</head>
 	<body>
+		<h1>Entity</h1>
+		<p>description</p>
 		<ul>
-			<li>
-				<div class="header">
-					<h2>Entity</h2>
+			<li><div class="entry">
+					<div class="head">
+						<h2>Name</h2>
+						<h3>type</h3>
+					</div>
 					<div class="body">
-						<p>Entity base class</p>
+						<p>Description</p>
 						<ul>
-							<li><div class="header">
-								<h2>id</h2>
-								<h3>string</h3>
-								<div class="body">
-									<p>text representation of the entity's ID. Does not exist for the Player entity</p>
-								</div>
+							<li><div class="entry">
+									<div class="head">
+										<h2>Name</h2>
+										<h3>type</h3>
+									</div>
+									<div class="body">
+										<p>Description</p>
+										<ul>
+											<li></li>
+										</ul>
+									</div>
 							</div></li>
-							<li><div class="header">
-								<h2>Pos</h2>
-								<h3>double[]</h3>
-								<div class="body">
-									<p>describing the current X, Y and Z position of the entity.</p>
-									<ul>
-										<li><div class="header">
-											<h2>0</h2>
-											<h3>double</h3>
-											<div class="body">
-												<p>x coord</p>
-											</div>
-										</div></li>
-										<li><div class="header">
-											<h2>1</h2>
-											<h3>double</h3>
-											<div class="body">
-												<p>x coord</p>
-											</div>
-										</div></li>
-										<li><div class="header">
-											<h2>2</h2>
-											<h3>double</h3>
-											<div class="body">
-												<p>x coord</p>
-											</div>
-										</div></li>
-									</ul>
-								</div>
-							</div></li>
-							<li><div class="header">
-								<h2>Air</h2>
-								<h3>int</h3>
-								<div class="body">
-									<p>How much air the entity has, in ticks. Fills to a maximum of 300 in air, giving 15 seconds submerged</p>
-								</div>
+							<li><div class="entry">
+									<div class="head">
+										<h2>Name</h2>
+										<h3>type</h3>
+									</div>
+									<div class="body">
+										<p>Description</p>
+										<ul>
+											<li></li>
+										</ul>
+									</div>
 							</div></li>
 						</ul>
 					</div>
-				</body>
-			</li>
+			</div></li>
+
 		</ul>
-	</div>
+	</body>
 </html>

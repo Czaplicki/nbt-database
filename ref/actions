@@ -1,0 +1,26 @@
+
+
+
+(class|style)=".*?"|<span  ></span>|\n -> nil
+
+:<span id=".*?"></span>|<a .*?>(.*?)</a> -> $1
+
+<span  >&nbsp;(.*?)</span> -> <h2>$1</h2>
+
+<span title="(.*?)"></span> -> <h3>$1</h3>
+
+: (.*?)< -> <p>$1</p><
+
+<li  data\-page="Template:Nbt inherit/itemnoslot/template" data\-template="true" data\-treeview="true" data\-treeview>Tags common to all items <span >see Template:Nbt inherit/itemnoslot/template</span><span  >\[<span >show</span>\]</span></li> -> nil
+
+(<h3>.*?</h3>)(<h2>.*?</h2>)(<p>.*?</p>) -> <div class="entry">
+		<div class="head">
+			$2
+			$1
+		</div>
+		<div class="body">
+			$3
+		</div>
+</div>
+
+</li><li> -> </li>\n<li>

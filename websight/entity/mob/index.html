@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet/less" type="text/css" href="/style.less"/>
+		<script src="/less.min.js" type="text/javascript"></script>
+		<script src="/jquery.min.js" charset="utf-8"></script>
+		<script type="text/javascript">	less.watch(); </script>
+		<script src="/dropdown.js" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="header">
+			<h1>Mob</h1>
+			<h3>extends <a href="/entity">entity</a></h3>
+			<p>Mobs are "living", moving game entities.</p>
+			<p>The term "mob" is short for "mobile".</p>
+		</div>
+
+		<ul>
+			<li><div class="entry">
+					<div class="head">
+						<h2>Health</h2>
+						<h3>float</h3>
+					</div>
+					<div class="body">
+						<p>Amount of health the entity has.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>AbsorptionAmount</h2>
+						<h3>float</h3>
+					</div>
+					<div class="body">
+						<p>Amount of extra health added by Absorption effect.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>HurtTime</h2>
+						<h3>short</h3>
+					</div>
+					<div class="body">
+						<p>Number of ticks the mob turns red for after being hit. 0 when not recently hit.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>HurtByTimestamp</h2>
+						<h3>int</h3>
+					</div>
+					<div class="body">
+						<p>The last time the mob was damaged, measured in the number of ticks since the mob's creation. Updates to a new value whenever the mob is damaged, then updates again 101 ticks later for reasons unknown. Can be changed with the entitydata command, but the specified value does not affect natural updates in any way, and is overwritten if the mob receives damage.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>DeathTime</h2>
+						<h3>short</h3>
+					</div>
+					<div class="body">
+						<p>Number of ticks the mob has been dead for. Controls death animations. 0 when alive.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>FallFlying</h2>
+						<h3>byte</h3>
+					</div>
+					<div class="body">
+						<p>Setting to 1 for non-player entities causes the entity to glide as long as they are wearing elytra in the chest slot. Can be used to detect when the player is gliding without using scoreboard statistics.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>SleepingX</h2>
+						<h3>int</h3>
+					</div>
+					<div class="body">
+						<p>The X coordinate of where the entity is sleeping, absent if not sleeping.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>SleepingY</h2>
+						<h3>int</h3>
+					</div>
+					<div class="body">
+						<p>The Y coordinate of where the entity is sleeping, absent if not sleeping.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>SleepingZ</h2>
+						<h3>int</h3>
+					</div>
+					<div class="body">
+						<p>The Z coordinate of where the entity is sleeping, absent if not sleeping.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+				<div class="head">
+					<h2>Brain</h2>
+					<h3>compound</h3>
+				</div>
+				<div class="body">
+					<p>Everything this entity has to keep in mind.</p>
+					<ul>
+						<li><div class="entry">
+							<div class="head">
+								<h2>memories</h2>
+								<h3>compound</h3>
+							</div>
+							<div class="body">
+								<p>Empty for all but villagers.</p>
+								<ul>
+									<li><div class="entry">
+										<div class="head">
+											<h2>minecraft:meeting_point</h2>
+											<h3>compound</h3>
+										</div>
+										<div class="body">
+											<p>Where this villager's meeting point is.</p>
+											<ul>
+												<li><div class="entry">
+													<div class="head">
+														<h2>pos</h2>
+														<h3>int [3]</h3>
+													</div>
+													<div class="body">
+														<p>The X Y and Z values of the meeting point.</p>
+													</div>
+												</div></li>
+												<li><div class="entry">
+													<div class="head">
+														<h2>dimension</h2>
+														<h3>string</h3>
+													</div>
+													<div class="body">
+														<p>The dimension ID of the meeting point.</p>
+													</div>
+												</div></li>
+											</ul>
+										</div>
+									</div></li>
+									<li><div class="entry">
+										<div class="head">
+											<h2>minecraft:home</h2>
+											<h3>compound</h3>
+										</div>
+										<div class="body">
+											<p>Where this villager's bed is.</p>
+											<ul>
+												<li><div class="entry">
+													<div class="head">
+														<h2>pos</h2>
+														<h3>int [3]</h3>
+													</div>
+													<div class="body">
+														<p>The X Y and Z values of the bed.</p>
+													</div>
+												</div></li>
+												<li><div class="entry">
+													<div class="head">
+														<h2>dimension</h2>
+														<h3>string</h3>
+													</div>
+													<div class="body">
+														<p>The dimension ID of the bed.</p>
+													</div>
+												</div></li>
+											</ul>
+										</div>
+									</div></li>
+									<li><div class="entry">
+										<div class="head">
+											<h2>minecraft:job_site</h2>
+											<h3>compound</h3>
+										</div>
+										<div class="body">
+											<p>Where this villager's job site block is.</p>
+											<ul>
+												<li><div class="entry">
+														<div class="head">
+															<h2>pos</h2>
+															<h3>int [3]</h3>
+														</div>
+														<div class="body">
+															<p>The X Y and Z values of the job site block.</p>
+														</div>
+												</div></li>
+												<li><div class="entry">
+														<div class="head">
+															<h2>dimension</h2>
+															<h3>string</h3>
+														</div>
+														<div class="body">
+															<p>The dimension ID of the job site block.</p>
+														</div>
+												</div></li>
+											</ul>
+										</div>
+									</div></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>Attributes</h2>
+						<h3><a href="/type/attribute">attribute</a> []</h3>
+
+					</div>
+					<div class="body">
+						<p>A list of Attributes for this mob. These are used for many purposes in internal calculations, and can be considered a mob's "statistics". Valid Attributes for a given mob are listed in the main article.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>ActiveEffects</h2>
+						<h3><a href="/type/effect">effect</a> []</h3>
+					</div>
+					<div class="body">
+						<p>The list of potion effects on this mob. May not exist.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>HandItems</h2>
+						<h3><a href="/type/item">Item</a> [2]</h3>
+					</div>
+					<div class="body">
+						<p>The list of items the mob is holding, in the following order: Main hand, Off hand.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>ArmorItems</h2>
+						<h3><a href="/type/item">Item</a> [4]</h3>
+					</div>
+					<div class="body">
+						<p>The list of items the mob is wearing as armor, in the following order: feet, legs, chest, head.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>HandDropChances</h2>
+						<h3>float [2]</h3>
+					</div>
+					<div class="body">
+						<p>List of float values representing the chance for a handheld item to drop.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>ArmorDropChances</h2>
+						<h3>float [4]</h3>
+					</div>
+					<div class="body">
+						<p>List of float values representing the chance for a worn armor item to drop.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>DeathLootTable</h2>
+						<h3><a href="/type/item">namespace id</a></h3>
+					</div>
+					<div class="body">
+						<p>Optional. Loot table to be used for the items that drop when the entity is killed.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>DeathLootTableSeed</h2>
+						<h3>long</h3>
+					</div>
+					<div class="body">
+						<p>Optional. Seed for generating the loot table. If 0 or omitted, a random seed is used.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>CanPickUpLoot</h2>
+						<h3>byte</h3>
+					</div>
+					<div class="body">
+						<p>1 or 0 (true/false) - true if the mob can pick up loot (wear armor it picks up, use weapons it picks up).</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>NoAI</h2>
+						<h3>byte</h3>
+					</div>
+					<div class="body">
+						<p>1 or 0 (true/false) - Setting to true disables the mob's AI. The mob does not and cannot move, to the extent of not falling when normally able.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>PersistenceRequired</h2>
+						<h3>byte</h3>
+					</div>
+					<div class="body">
+						<p>1 or 0 (true/false) - true if the mob must not despawn naturally.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>LeftHanded</h2>
+						<h3>byte</h3>
+					</div>
+					<div class="body">
+						<p>1 or 0 (true/false) - true if the mob renders the main hand as being left.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>Team</h2>
+						<h3>string</h3>
+					</div>
+					<div class="body">
+						<p>This tag is actually not part of the NBT data of a mob, but instead used when spawning it, so it cannot be tested for. It makes the mob instantly join the scoreboard team with that name.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>Leashed</h2>
+						<h3>byte</h3>
+					</div>
+					<div class="body">
+						<p>1 or 0 (true/false) - whether the mob is leashed.</p>
+					</div>
+			</div></li>
+			<li><div class="entry">
+					<div class="head">
+						<h2>Leash</h2>
+						<h3>compound</h3>
+					</div>
+					<div class="body">
+						<p>Either contains a UUID long pair, if this leash connects to another entity\nOR\n an X, Y, Z int trio if this leash connects to a fencepost.</p>
+						<ul>
+							<li><div class="entry">
+								<div class="head">
+									<h2>UUIDMost</h2>
+									<h3>long</h3>
+								</div>
+								<div class="body">
+									<p>The most significant bits of the Universally Unique IDentifier of the entity this leash connects to.</p>
+								</div>
+							</div></li>
+							<li><div class="entry">
+								<div class="head">
+									<h2>UUIDLeast</h2>
+									<h3>long</h3>
+								</div>
+								<div class="body">
+									<p>The least significant bits of the Universally Unique IDentifier of the entity this leash connects to.</p>
+								</div>
+							</div></li>
+							<li><div class="entry">
+								<div class="head">
+									<h2>X</h2>
+									<h3>int</h3>
+								</div>
+								<div class="body">
+									<p>The X coordinate of the fence this leash connects to.</p>
+								</div>
+							</div></li>
+							<li><div class="entry">
+								<div class="head">
+									<h2>Y</h2>
+									<h3>int</h3>
+								</div>
+								<div class="body">
+									<p>The Y coordinate of the fence this leash connects to.</p>
+								</div>
+							</div></li>
+							<li><div class="entry">
+								<div class="head">
+									<h2>Z</h2>
+									<h3>int</h3>
+								</div>
+								<div class="body">
+									<p>The Z coordinate of the fence this leash connects to.</p>
+								</div>
+							</div></li>
+						</ul>
+					</div>
+			</div></li>
+		</ul>
+
+		<div class="footer">
+		</div>
+	</body>
+</html>
